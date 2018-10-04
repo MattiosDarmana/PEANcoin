@@ -62,6 +62,16 @@ public:
 
 template<typename T>
 bool ISerializer::operator()(T& value, Common::StringView name) {
+  /* Some compilers treat size_t differently, so it doesn't match any of the
+     declarations above. This hack just checks if it's one of those unmatched
+     types, and casts it to a uint64_t to serialize it. */
+  if (std::is_same<T, size_t>::value 
+   || std::is_same<T, long unsigned int>::value
+   || std::is_same<T, unsigned long>::value)
+  {
+      return operator()(*reinterpret_cast<uint64_t*>(&value), name);
+  }
+
   return serialize(value, name, *this);
 }
 
@@ -80,13 +90,6 @@ template<typename T>
 void serialize(T& value, ISerializer& serializer) {
   value.serialize(serializer);
 }
-
-#ifdef __clang__
-template<> inline
-bool ISerializer::operator()(size_t& value, Common::StringView name) {
-  return operator()(*reinterpret_cast<uint64_t*>(&value), name);
-}
-#endif
 
 #define KV_MEMBER(member) s(member, #member);
 
