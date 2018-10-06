@@ -444,7 +444,7 @@ void serialize(RawBlock& rawBlock, ISerializer& serializer) {
     serializer(blockSize, "block_size");
     rawBlock.block.resize(static_cast<uint64_t>(blockSize));
   } else {
-    auto blockSize = rawBlock.block.size();
+    uint64_t blockSize = rawBlock.block.size();
     serializer(blockSize, "block_size");
   }
 
@@ -462,11 +462,11 @@ void serialize(RawBlock& rawBlock, ISerializer& serializer) {
       serializer.binary(txBlob.data(), txBlob.size(), "transaction");
     }
   } else {
-    auto txCount = rawBlock.transactions.size();
+    uint64_t txCount = rawBlock.transactions.size();
     serializer(txCount, "tx_count");
 
     for (auto& txBlob : rawBlock.transactions) {
-      auto txSize = txBlob.size();
+      uint64_t txSize = txBlob.size();
       serializer(txSize, "tx_size");
       serializer.binary(txBlob.data(), txBlob.size(), "transaction");
     }
