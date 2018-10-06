@@ -17,7 +17,7 @@
 
 #pragma once
 
-#if defined(__GNUC__) && defined(OS_DARWIN)
+#if defined(__GNUC__) && defined(__APPLE__)
 
 #define INITIALIZER(name) __attribute__((constructor)) static void name(void)
 #define FINALIZER(name) __attribute__((destructor)) static void name(void)
