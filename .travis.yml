@@ -76,7 +76,7 @@ matrix:
     compiler: gcc
     env:
     # Need to uninstall oclint to get newer gcc installed https://github.com/travis-ci/travis-ci/issues/8826
-    - MATRIX_EVAL="brew cask uninstall --force oclint || true ; brew install gcc@8 && CC=gcc-8 && CXX=g++-8"
+    - MATRIX_EVAL="brew cask uninstall --force oclint || true ; brew install gcc@8 && brew install boost --cc=gcc-8 && CC=gcc-8 && CXX=g++-8"
     - LABEL="osx-g++-8"
     - STRIP="strip"
 
@@ -85,18 +85,18 @@ matrix:
     osx_image: xcode10
     compiler: gcc
     env:
-    - MATRIX_EVAL="brew cask uninstall --force oclint || true ; brew install gcc@7 && CC=gcc-7 && CXX=g++-7"
+    - MATRIX_EVAL="brew cask uninstall --force oclint || true ; brew install gcc@7 && brew install boost --cc=gcc-7 && CC=gcc-7 && CXX=g++-7"
     - LABEL="osx-g++-7"
     - STRIP="strip"
 
   # OSX, clang
-  - os: osx
-    osx_image: xcode10
-    compiler: clang
-    env:
-    - MATRIX_EVAL="CC=clang && CXX=clang++"
-    - LABEL="osx-clang"
-    - STRIP="strip"
+  #- os: osx
+  #  osx_image: xcode10
+  #  compiler: clang
+  #  env:
+  #  - MATRIX_EVAL="CC=clang && CXX=clang++"
+  #  - LABEL="osx-clang"
+  #  - STRIP="strip"
 
   # Arm (aarch64) cross compile, g++7
   #- os: linux
