@@ -5,70 +5,70 @@ matrix:
   include:
 
   # Ubuntu, g++-8
-  - os: linux
-    compiler: gcc
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages: 
-          - libboost1.55-all-dev
-          - g++-8
-          - gcc-8
-    env:
-    - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
-    - LABEL="linux-g++-8"
-    - STRIP="strip"
+  #- os: linux
+  #  compiler: gcc
+  #  addons:
+  #    apt:
+  #      sources:
+  #      - ubuntu-toolchain-r-test
+  #      packages: 
+  #        - libboost1.55-all-dev
+  #        - g++-8
+  #        - gcc-8
+  #  env:
+  #  - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+  #  - LABEL="linux-g++-8"
+  #  - STRIP="strip"
 
   # Ubuntu, g++-7
-  - os: linux
-    compiler: gcc
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages: 
-          - libboost1.55-all-dev
-          - g++-7
-          - gcc-7
-    env:
-    - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-    - LABEL="linux-g++-7"
-    - STRIP="strip"
+  #- os: linux
+  #  compiler: gcc
+  #  addons:
+  #    apt:
+  #      sources:
+  #      - ubuntu-toolchain-r-test
+  #      packages: 
+  #        - libboost1.55-all-dev
+  #        - g++-7
+  #        - gcc-7
+  #  env:
+  #  - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+  #  - LABEL="linux-g++-7"
+  #  - STRIP="strip"
 
   # Ubuntu, clang-6
-  - os: linux
-    compiler: clang
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-trusty-6.0
-        packages: 
-          - libboost1.55-all-dev
-          - clang-6.0
-          - libstdc++-7-dev
-    env:
-    - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
-    - LABEL="linux-clang-6"
-    - STRIP="strip"
+  #- os: linux
+  #  compiler: clang
+  #  addons:
+  #    apt:
+  #      sources:
+  #      - ubuntu-toolchain-r-test
+  #      - llvm-toolchain-trusty-6.0
+  #      packages: 
+  #        - libboost1.55-all-dev
+  #        - clang-6.0
+  #        - libstdc++-7-dev
+  #  env:
+  #  - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
+  #  - LABEL="linux-clang-6"
+  #  - STRIP="strip"
 
   # Ubuntu, clang-5
-  - os: linux
-    compiler: clang
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-trusty-5.0
-        packages: 
-          - libboost1.55-all-dev
-          - clang-5.0
-          - libstdc++-6-dev
-    env:
-    - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-    - LABEL="linux-clang-5"
-    - STRIP="strip"
+  #- os: linux
+  #  compiler: clang
+  #  addons:
+  #    apt:
+  #      sources:
+  #      - ubuntu-toolchain-r-test
+  #      - llvm-toolchain-trusty-5.0
+  #      packages: 
+  #        - libboost1.55-all-dev
+  #        - clang-5.0
+  #        - libstdc++-6-dev
+  #  env:
+  #  - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+  #  - LABEL="linux-clang-5"
+  #  - STRIP="strip"
 
   # OSX, g++-8
   - os: osx
@@ -99,19 +99,19 @@ matrix:
     - STRIP="strip"
 
   # Arm (aarch64) cross compile, g++7
-  - os: linux
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        - gcc-7-cross
-        packages:
-        - gcc-7-aarch64-linux-gnu
-        - g++-7-aarch64-linux-gnu
-    env:
-    - MATRIX_EVAL="CC=aarch64-linux-gnu-gcc-7 && CXX=aarch64-linux-gnu-g++-7"
-    - LABEL="aarch64"
-    - STRIP="aarch64-linux-gnu-strip"
+  #- os: linux
+  #  addons:
+  #    apt:
+  #      sources:
+  #      - ubuntu-toolchain-r-test
+  #      - gcc-7-cross
+  #      packages:
+  #      - gcc-7-aarch64-linux-gnu
+  #      - g++-7-aarch64-linux-gnu
+  #  env:
+  #  - MATRIX_EVAL="CC=aarch64-linux-gnu-gcc-7 && CXX=aarch64-linux-gnu-g++-7"
+  #  - LABEL="aarch64"
+  #  - STRIP="aarch64-linux-gnu-strip"
 
 before_install:
 - eval $MATRIX_EVAL
