@@ -238,7 +238,7 @@ void WalletSerializerV2::loadKeyListAndBalances(CryptoNote::ISerializer& seriali
 }
 
 void WalletSerializerV2::saveKeyListAndBalances(CryptoNote::ISerializer& serializer, bool saveCache) {
-  auto walletCount = m_walletsContainer.get<RandomAccessIndex>().size();
+  uint64_t walletCount = m_walletsContainer.get<RandomAccessIndex>().size();
   serializer(walletCount, "walletCount");
   for (auto wallet : m_walletsContainer.get<RandomAccessIndex>()) {
     serializer(wallet.spendPublicKey, "spendPublicKey");
