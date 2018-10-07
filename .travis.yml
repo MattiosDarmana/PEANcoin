@@ -114,7 +114,7 @@ matrix:
   #  - STRIP="aarch64-linux-gnu-strip"
 
 before_install:
-- travis_wait eval $MATRIX_EVAL
+- travis_wait 50 eval $MATRIX_EVAL
 
 install:
 - if [[ "$LABEL" == "aarch64" ]]; then wget http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz ; fi
